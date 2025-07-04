@@ -137,6 +137,92 @@ span{
     box-shadow: 0 0 1rem var(--main-color);
 }
 
+/* hexagon effects */
+.hexagon{
+    position: relative;
+    width: 400px;
+    height: 350px;
+    margin: 50px 20px 70px;
+    cursor: pointer;
+}
+.hexagon:hover::before{
+    opacity: 0.8s;
+    transform: scale(0.8);
+}
+.hexagon::before{
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    height: 50px;
+    background: radial-gradient(var(--main-color),transparent,transparent);
+    border-radius: 50%;
+    animation: beforeImg 4s ease-in-out infinite;
+}
+@keyframes beforeImg{
+    0%{
+        opacity: 0s;
+        transform: scale(0);
+    }
+    50%{
+        opacity: 0.8s;
+        transform: scale(0.8);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.hexagon .shape
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--main-color);
+    clip-path: polygon(0% 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: floatImage 4s ease-in-out infinite;
+}
+.hex-inner {
+  position: absolute;
+  width: 95%;
+  height: 95%; 
+  background-color:  var(--second-bg-color);
+  clip-path: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+@keyframes floatImage{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-2.4rem);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+.hexagon .shape:hover{
+    transform: translateY(-50px);
+}
+.hexagon .shape img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* About section */
 .about{
     display: flex;
@@ -338,93 +424,6 @@ span{
 .footer-iconTop a i{
     font-size: 2.4rem;
     color: var(--second-bg-color);
-}
-
-
-/* hexagon effects */
-.hexagon{
-    position: relative;
-    width: 450px;
-    height: 400px;
-    margin: 50px 20px 70px;
-    cursor: pointer;
-}
-.hexagon:hover::before{
-    opacity: 0.8s;
-    transform: scale(0.8);
-}
-.hexagon::before{
-    content: '';
-    position: absolute;
-    bottom: -50px;
-    width: 100%;
-    height: 50px;
-    background: radial-gradient(var(--main-color),transparent,transparent);
-    border-radius: 50%;
-    animation: beforeImg 4s ease-in-out infinite;
-}
-@keyframes beforeImg{
-    0%{
-        opacity: 0s;
-        transform: scale(0);
-    }
-    50%{
-        opacity: 0.8s;
-        transform: scale(0.8);
-    }
-    100%{
-        opacity: 0;
-        transform: scale(0);
-    }
-}
-
-.hexagon .shape
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: var(--main-color);
-    clip-path: polygon(0% 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: floatImage 4s ease-in-out infinite;
-}
-.hex-inner {
-  position: absolute;
-  width: 95%;
-  height: 95%; 
-  background-color:  var(--second-bg-color);
-  clip-path: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: sans-serif;
-  font-weight: bold;
-}
-@keyframes floatImage{
-    0%{
-        transform: translateY(0);
-    }
-    50%{
-        transform: translateY(-2.4rem);
-    }
-    100%{
-        transform: translateY(0);
-    }
-}
-.hexagon .shape:hover{
-    transform: translateY(-50px);
-}
-.hexagon .shape img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 
